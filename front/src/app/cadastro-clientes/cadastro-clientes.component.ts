@@ -10,6 +10,7 @@ import { debounceTime } from 'rxjs/operators';
 export class CadastroClientesComponent implements OnInit {
   public formCadastro: any;
   public valoresForm !: Object;
+  public conversao !: string;
 
   constructor(private fb: FormBuilder) { }
 
@@ -32,7 +33,10 @@ export class CadastroClientesComponent implements OnInit {
   }
 
   cadastro(): void{
-    console.log(this.formCadastro.controls);
+    //aqui tem que ter uma requisição pra salvar
+    this.conversao = JSON.stringify(this.valoresForm);
+    localStorage.setItem('cadastro', this.conversao);
+    //console.log(this.formCadastro.controls);
   }
 
 }

@@ -11,6 +11,10 @@ import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeLogadaComponent } from './home-logada/home-logada.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    CadastroClientesComponent
+    CadastroClientesComponent,
+    HomeLogadaComponent,
+    AcessoNegadoComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent], 
 })
 export class AppModule { }
