@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroClientesComponent } from './cadastro-clientes.component';
+import CadastroClientesComponent from './cadastro-clientes.component';
 
 describe('CadastroClientesComponent', () => {
   let component: CadastroClientesComponent;
@@ -8,9 +9,9 @@ describe('CadastroClientesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastroClientesComponent ]
+      declarations: [CadastroClientesComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

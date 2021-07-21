@@ -4,17 +4,21 @@ import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export default class HeaderComponent implements OnInit {
   public formLogin: any;
-  constructor(private fb: FormBuilder) { }
+
+  private fb: FormBuilder
+
+  constructor(private f: FormBuilder) {
+    this.fb = f;
+  }
 
   ngOnInit(): void {
     this.formLogin = this.fb.group({
-      cpf: ['']
+      cpf: [''],
     });
-    console.log("Component app-header started...")
+    console.log('Component app-header started...');
   }
-
 }

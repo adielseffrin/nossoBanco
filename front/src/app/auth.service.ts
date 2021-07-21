@@ -1,11 +1,15 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
-export class AuthService {
+export default class AuthService {
+  public cadastro: string | null;
 
-    isAuthenticate() {
-        const token = localStorage.getItem('cadastro');
-        return !!token;
+  constructor() {
+    this.cadastro = localStorage.getItem('cadastro');
+  }
 
-    }
+  isAuthenticate() {
+    const token = this.cadastro;
+    return !!token;
+  }
 }

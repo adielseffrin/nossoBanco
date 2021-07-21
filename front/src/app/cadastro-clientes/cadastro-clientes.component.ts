@@ -5,14 +5,20 @@ import { debounceTime } from 'rxjs/operators';
 @Component({
   selector: 'app-cadastro-clientes',
   templateUrl: './cadastro-clientes.component.html',
-  styleUrls: ['./cadastro-clientes.component.css']
+  styleUrls: ['./cadastro-clientes.component.css'],
 })
-export class CadastroClientesComponent implements OnInit {
+export default class CadastroClientesComponent implements OnInit {
   public formCadastro: any;
+
   public valoresForm !: Object;
+
   public conversao !: string;
 
-  constructor(private fb: FormBuilder) { }
+  private fb : FormBuilder;
+
+  constructor(private f: FormBuilder) {
+    this.fb = f;
+  }
 
   ngOnInit(): void {
     this.formCadastro = this.fb.group({
@@ -20,23 +26,19 @@ export class CadastroClientesComponent implements OnInit {
       cpf: [''],
       email: [''],
       telefone: [''],
-      endereco: ['']
+      endereco: [''],
     });
-    
 
     this.formCadastro.valueChanges
-    .pipe(debounceTime(1000))
-    .subscribe((res: any) => {
-      console.log(res);
-      this.valoresForm = res;
-    })
+      .pipe(debounceTime(1000))
+      .subscribe((res: any) => {
+        this.valoresForm = res;
+      });
   }
 
-  cadastro(): void{
-    //aqui tem que ter uma requisição pra salvar
+  cadastro(): void {
+    // aqui tem que ter uma requisição pra salvar
     this.conversao = JSON.stringify(this.valoresForm);
     localStorage.setItem('cadastro', this.conversao);
-    //console.log(this.formCadastro.controls);
   }
-
 }

@@ -1,23 +1,28 @@
-import { AuthService } from "./auth.service";
-import { Injectable } from "@angular/core";
 import { CanActivate, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import AuthService from './auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export default class AuthGuard implements CanActivate {
+  baseUrl?: string;
 
-    base_url?: string;
+  private authService: AuthService;
 
-    constructor(
-        private authService: AuthService,
-        private router: Router
-    ){}
+  private router: Router;
 
-    canActivate(){
-        if(this.authService.isAuthenticate()){
-            return true;
-        }else{
-            this.router.navigate(['/acesso-negado']);
-            return false;
-        }
+  constructor(
+      private as: AuthService,
+      private r: Router,
+  ) {
+    this.authService = as;
+    this.router = r;
+  }
+
+  canActivate() {
+    if (this.authService.isAuthenticate()) {
+      return true;
     }
+    this.router.navigate(['/acesso-negado']);
+    return false;
+  }
 }

@@ -3,20 +3,20 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component';
-import { FooterComponent } from './footer/footer.component';
-import { AppRoutingModule } from './app-routing.module';
-import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeLogadaComponent } from './home-logada/home-logada.component';
-import { AuthGuard } from './auth.guard';
-import { AuthService } from './auth.service';
-import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
-import { LoginComponent } from './login/login.component';
-import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
+import AppComponent from './app.component';
+import HeaderComponent from './header/header.component';
+import ContentComponent from './content/content.component';
+import FooterComponent from './footer/footer.component';
+import AppRoutingModule from './app-routing.module';
+import CadastroClientesComponent from './cadastro-clientes/cadastro-clientes.component';
+import HomeLogadaComponent from './home-logada/home-logada.component';
+import AuthGuard from './auth.guard';
+import AuthService from './auth.service';
+import AcessoNegadoComponent from './acesso-negado/acesso-negado.component';
+import LoginComponent from './login/login.component';
+import CadastroConcluidoComponent from './cadastro-concluido/cadastro-concluido.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-conclu
     HomeLogadaComponent,
     AcessoNegadoComponent,
     LoginComponent,
-    CadastroConcluidoComponent
+    CadastroConcluidoComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +36,9 @@ import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-conclu
     MatDialogModule,
     RouterModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [AuthGuard, AuthService],
-  bootstrap: [AppComponent], 
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export default class AppModule { }

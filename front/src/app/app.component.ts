@@ -4,20 +4,24 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export default class AppComponent {
   title = 'nossoBancoFront';
 
-  constructor(public dialog: MatDialog){ }
+  public dialog : MatDialog;
 
-  openDialog(){
-    const dialogRef = this.dialog.open(AppComponent,{
-      height: '350px'
+  constructor(public d: MatDialog) {
+    this.dialog = d;
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AppComponent, {
+      height: '350px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`)
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }
